@@ -18,9 +18,20 @@ context("Testes Funcionais Gui", () => {
       cy.RemoverDentrodoCarrinho();
     });
 
-    it.only("Continue para o Shopping", () => {
+    it("Continue para o Shopping", () => {
       cy.ContinueShopping();
     });
+
+    it('Clicar para CheckOut Compra', () => {
+      cy.CompraCheckout()
+    });
+    it('Preencher Dados para CheckOut Compra', () => {
+      cy.PreencherDadosCheckout()
+    });
+    it.only('Validar Checkout', () => {
+      cy.ValidarCheckout()
+    });
+
 
 
   });
