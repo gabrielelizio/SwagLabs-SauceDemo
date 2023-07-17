@@ -23,5 +23,9 @@ context("Testes Funcionais de GUI", () => {
     it("Informando Usuario já logado", () => {
       cy.UsuarioLockado();
     });
+
+    it("Realizar Logout", () => {
+      cy.Logout();
+    });
   });
 });

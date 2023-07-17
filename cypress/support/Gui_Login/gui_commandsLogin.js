@@ -98,3 +98,14 @@ Cypress.Commands.add(
     }
   }
 );
+
+Cypress.Commands.add(
+  "Logout",() => {
+    {
+      cy.Login()
+      cy.get('.bm-burger-button > button').click()
+      cy.get('#logout_sidebar_link').click()
+      cy.get('#login-button').should('be.visible')
+    }
+  }
+);

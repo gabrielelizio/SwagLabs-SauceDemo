@@ -1,4 +1,4 @@
 
 import './commands'
-import './gui_commandsLogin'
-import './gui_commandsProduto'
+import './Gui_Login/gui_commandsLogin'
+import './Gui_Produto/gui_commandsProduto'

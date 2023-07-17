@@ -6,6 +6,9 @@ context("Testes Funcionais Gui", () => {
       cy.AdicionaraoCarrinho();
     });
 
+    it("Adicionar Todos ao Carrinho", () => {
+      cy.AdicionarTodosAoCarrinho();
+    });
     it("Remover do Carrinho", () => {
       cy.RemoverDoCarrinho();
     });
@@ -32,11 +35,14 @@ context("Testes Funcionais Gui", () => {
       cy.ValidarCheckout()
     });
 
+    it('Validar Dados Obrigatorios Checkout', () => {
+      cy.ValidarDadosCheckout()
+    });
     it('Finalizar Checkout', () => {
       cy.FinalizarCheckout()
     });
     
 
-
+    
   });
 });
