@@ -1,3 +1,6 @@
+import { format } from "./utils";
+
+
 Cypress.Commands.add("AdicionaraoCarrinho", () => {
   {
     cy.AcessarSiteLogin();
@@ -72,31 +75,34 @@ Cypress.Commands.add(
   }
 );
 
+//ValidarCheckout
 
-ValidarCheckout
+Cypress.Commands.add("ValidarCheckout", () => {
+  {
+    cy.PreencherDadosCheckout();
 
+    cy.get(".inventory_item_price")
+      .invoke("text")
+      .then(($value_1) => {
+        cy.get('.summary_subtotal_label')
+          .invoke("text")
+          .then(($value_2) => {
 
-Cypress.Commands.add(
-  "ValidarCheckout",
-  (
-    firstName = Cypress.env("FIRSTNAME"),
-    lastName = Cypress.env("LASTNAME"),
-    postalCode = Cypress.env("ZIPCODE")
-  ) => {
-    {
-      cy.PreencherDadosCheckout();
+            let formattedTotalDisplay = format($value_1)
+            let expectedTotal = format ($value_2)
 
-      cy.get('.inventory_item_price').invoke('text').then(text => {
-        
-        let TotalDisplay = (text)
+            expect(expectedTotal).to.eq(formattedTotalDisplay)
 
-        cy.get('#totalDisplay').invoke('text').then(text =>{
-
-      })
-
-
-    })
-      
-    }
+          });
+      });
   }
-);
+});
+
+
+Cypress.Commands.add("FinalizarCheckout",() => {
+  {
+    cy.PreencherDadosCheckout();
+    cy.get('.btn_action').click()
+    cy.get(".complete-header").should("contain", "THANK YOU FOR YOUR ORDER");
+  }
+})

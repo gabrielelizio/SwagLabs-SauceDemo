@@ -1,7 +1,7 @@
 /// <reference types="Cypress"/>
 
 context("Testes Funcionais de GUI", () => {
-  describe.only("Logins", () => {
+  describe("Logins", () => {
     it("Login Sucesso", () => {
       cy.Login();
     });

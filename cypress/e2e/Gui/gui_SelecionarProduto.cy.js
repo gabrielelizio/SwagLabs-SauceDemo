@@ -28,10 +28,14 @@ context("Testes Funcionais Gui", () => {
     it('Preencher Dados para CheckOut Compra', () => {
       cy.PreencherDadosCheckout()
     });
-    it.only('Validar Checkout', () => {
+    it('Validar Checkout', () => {
       cy.ValidarCheckout()
     });
 
+    it('Finalizar Checkout', () => {
+      cy.FinalizarCheckout()
+    });
+    
 
 
   });
